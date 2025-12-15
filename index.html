@@ -1,1 +1,698 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gautam Mishra – Senior Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Senior Software Engineer with 10+ years of experience architecting large-scale backend systems, data platforms, and cloud-native services. Expert in distributed systems, data engineering, and technical leadership." />
+  <meta name="theme-color" content="#020617" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-secondary: #0f172a;
+      --panel: #0b1220;
+      --text: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --border: rgba(148, 163, 184, 0.15);
+      --border-hover: rgba(148, 163, 184, 0.3);
+      --max-width: 1000px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --spacing-2xl: 4rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.02);
+      border-color: var(--border-hover);
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--spacing-xs);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-top: var(--spacing-xs);
+      font-weight: 400;
+    }
+
+    .location {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: var(--spacing-xs);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+      font-size: 0.9rem;
+      margin-top: var(--spacing-md);
+    }
+
+    nav a {
+      color: var(--muted);
+      padding: var(--spacing-xs) 0;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    section {
+      margin-bottom: var(--spacing-xl);
+      scroll-margin-top: var(--spacing-lg);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: var(--spacing-md);
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-md);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: var(--spacing-lg);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      margin-bottom: var(--spacing-sm);
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--spacing-sm);
+      font-weight: 500;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    ul {
+      margin-top: var(--spacing-sm);
+      padding-left: var(--spacing-lg);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    ul li {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    ul li::marker {
+      color: var(--accent);
+    }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: var(--spacing-lg);
+      margin-left: var(--spacing-xs);
+    }
+
+    .item {
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      padding-bottom: var(--spacing-sm);
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      left: calc(-1 * var(--spacing-lg) - 7px);
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .impact-metric {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+    }
+
+    .contact-item svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .contact-item a {
+      color: inherit;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: var(--spacing-lg);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: var(--spacing-2xl);
+    }
+
+    .skill-category {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .skill-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-category strong {
+      color: var(--text);
+      font-weight: 600;
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      font-size: 0.95rem;
+    }
+
+    .skill-list {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-xl);
+      }
+
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .two-col,
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: #000;
+      }
+
+      .card {
+        border: 1px solid #ddd;
+        break-inside: avoid;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <header>
+      <div class="header-content">
+        <img src="profile.jpg" alt="Gautam Mishra" class="profile-image" />
+        <div class="header-text">
+          <h1>Gautam Mishra</h1>
+          <div class="subtitle">
+            Senior Software Engineer — Architecting Large-Scale Systems & Data Platforms
+          </div>
+          <div class="location">
+            Austin, TX
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#beyond">Beyond Work</a>
+        <a href="#contact">Contact</a>
+        <a href="resume_web.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I’m a backend-focused software engineer with over a decade of experience designing and operating data-intensive
+        systems in production.
+        My work has centered around building reliable APIs, batch and streaming pipelines, and internal platforms that
+        operate at high scale and evolve over time.
+      </p>
+      <p>
+        I’ve worked on systems that process billions of events per day, generate firm-wide authorization datasets, and
+        power downstream services used across multiple teams.
+        I enjoy working close to the data and the infrastructure, making deliberate trade-offs around correctness,
+        scalability, and operational complexity.
+      </p>
+      <p>
+        Outside of work, I’m interested in system design, long-term maintainability, and understanding how technical
+        decisions shape organizations as they grow.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="timeline">
+
+        <article class="item">
+          <h3>Advanced Software Developer</h3>
+          <div class="meta">KForce (Consulting at Fidelity Investments) · April 2024 – Present</div>
+          <p>
+            At Fidelity, I worked on backend systems responsible for generating and serving firm-wide authorization
+            data. This involved building batch pipelines, owning shared authorization libraries used by multiple teams,
+            and supporting APIs that had strict correctness and availability requirements.
+          </p>
+          <p>
+            I also worked closely with downstream consumers to define data and API contracts, coordinate rollouts, and
+            resolve integration issues as systems evolved. Along the way, I built internal tooling to reduce operational
+            overhead and improve day-to-day workflows for the team.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3>Senior Backend Developer</h3>
+          <div class="meta">IBM · The Weather Company · February 2023 – March 2024</div>
+          <p>
+            At IBM’s Weather Company, I worked on backend systems responsible for ingesting and distributing large-scale
+            weather and lightning datasets. The systems processed multi-terabyte data volumes daily and served millions
+            of data products to enterprise clients with strict latency requirements.
+          </p>
+          <p>
+            My work focused on data ingestion, system reliability, and operational readiness, including multi-region
+            redundancy, CI/CD improvements, and backend service migrations. I spent a lot of time thinking about
+            trade-offs between performance, cost, and long-term maintainabilit.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3>Senior Software Engineer</h3>
+          <div class="meta">Klaviyo · June 2021 – July 2023</div>
+          <p>
+            At Klaviyo, I worked on data platforms that powered customer engagement workflows at scale. This included
+            contributing to the early architecture of the company’s data lake, building high-throughput stream
+            processing systems, and supporting analytical use cases that depended on accurate, timely event data.
+          </p>
+          <p>
+            I also worked on internal tooling and data models that helped teams reason about data correctness and system
+            behavior as scale increased.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3>Software Engineer</h3>
+          <div class="meta">IBM · February 2017 – June 2021</div>
+          <p>
+            During my earlier time at IBM, I worked on backend systems supporting large-scale weather and lightning data
+            products used by enterprise customers. This role was formative in shaping how I think about building
+            production systems that need to be reliable, observable, and correct under load.
+          </p>
+          <p>
+            I was involved in designing and operating data ingestion pipelines, improving service performance, and
+            addressing operational issues as they arose in production. Over time, I gained hands-on experience with
+            distributed systems, backend service development, and the realities of running data-heavy workloads at
+            scale.
+          </p>
+          <p>
+            This period helped me develop a strong appreciation for disciplined engineering practices, thoughtful system
+            design, and the importance of understanding how software behaves beyond local development environments.
+          </p>
+        </article>
+
+        <article class="item">
+          <h3>Java Developer</h3>
+          <div class="meta">Reliance Tech Services · September 2013 – November 2014</div>
+          <p>
+            I began my career as a Java developer working on backend systems for consumer-facing applications. In this
+            role, I was exposed to the fundamentals of building secure, scalable services, including payment workflows,
+            messaging systems, and early platform features that directly impacted end users.
+          </p>
+          <p>
+            I worked on implementing security protocols, improving message delivery reliability, and building backend
+            components that supported high-volume user interactions. I also started identifying gaps in existing systems
+            and introducing improvements where possible, which helped me develop an early sense of ownership and
+            responsibility for the quality of the systems I worked on.
+          </p>
+          <p>
+            This role laid the foundation for my later focus on backend architecture and data-driven systems, and it
+            shaped how I approach engineering problems with an emphasis on correctness, reliability, and real-world
+            impact.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="two-col">
+
+        <div class="card">
+          <h3>Core Expertise</h3>
+          <div class="skill-category">
+            <strong>Backend Engineering</strong>
+            <div class="skill-list">
+              Java (17/20), Spring Boot, Spring Batch, Dropwizard<br>
+              Distributed systems, REST APIs, Microservices
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>Data Engineering</strong>
+            <div class="skill-list">
+              Kafka, Spark / PySpark, Airflow, Apache Hudi<br>
+              Stream processing, Batch pipelines, Data lakes
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>Cloud & Infrastructure</strong>
+            <div class="skill-list">
+              AWS (EKS, Lambda, S3, Batch, EMR, IAM, SQS, SNS)<br>
+              Docker, Kubernetes, Terraform, Helm
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>Datastores</strong>
+            <div class="skill-list">
+              PostgreSQL, MySQL, ClickHouse, Cassandra, Redis
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Additional Skills</h3>
+          <div class="skill-category">
+            <strong>Frontend</strong>
+            <div class="skill-list">
+              Angular (internal tooling), HTML, CSS, TypeScript
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>Scripting & Automation</strong>
+            <div class="skill-list">
+              Python, Bash, Linux tooling
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>Observability & Operations</strong>
+            <div class="skill-list">
+              Grafana, Datadog, OpenSearch, PagerDuty<br>
+              Monitoring, Alerting, Incident response
+            </div>
+          </div>
+          <div class="skill-category">
+            <strong>CI/CD & DevOps</strong>
+            <div class="skill-list">
+              Jenkins, GitHub Actions, Helm<br>
+              Infrastructure-as-code, Security scanning
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="beyond">
+      <h2>Beyond Work</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Photography</h3>
+          <p>
+            I enjoy photography, especially travel and aerial photography. I spend time learning composition, working
+            with light, and refining post-processing techniques.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Travel</h3>
+          <p>
+            Traveling with my family is an important way for me to disconnect from work and reset. Exploring new places
+            and cultures is something I value and make time for.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <div class="contact-item">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          <span>gmishrs [dot] work [at] proton [dot] me</span>
+        </div>
+        <div class="contact-item">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+          <a href="https://linkedin.com/in/mishragautam" target="_blank"
+            rel="noopener noreferrer">linkedin.com/in/mishragautam</a>
+        </div>
+        <div class="contact-item">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          <a href="https://github.com/gautammishra" target="_blank"
+            rel="noopener noreferrer">github.com/gautammishra</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>&copy; <span id="year"></span> Gautam Mishra</span>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
