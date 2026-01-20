@@ -442,6 +442,7 @@
 
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#beyond">Beyond Work</a>
@@ -467,6 +468,38 @@
       <p>
         Outside of work, I’m interested in system design, long-term maintainability, and understanding how technical
         decisions shape organizations as they grow.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>ReturnAtlas — Investment Analytics System</h2>
+      <div class="meta">Independent Technical Project</div>
+      <p>
+        ReturnAtlas is a production-grade investment analytics system I designed and built independently to explore
+        deterministic backtesting, portfolio simulations, and risk-adjusted return computations with high correctness
+        and operational discipline.
+      </p>
+      <p>
+        Over the course of the project, I took the system from architecture through ongoing operations, making deliberate
+        tradeoffs between data quality, cost, and scalability. The core design emphasizes reproducible results and
+        maintainability rather than superficial feature breadth.
+      </p>
+      <p><strong>Key features of the system include:</strong></p>
+      <ul>
+        <li>End-to-end architecture for financial data ingestion, normalization, and analytics, designed to scale from
+          hundreds to thousands of symbols with minimal re-architecture.</li>
+        <li>Batch-first, idempotent data pipelines implemented with AWS Lambda, S3, SQS, and PostgreSQL, ensuring
+          correctness even in the face of partial failures.</li>
+        <li>Stable REST APIs built with Spring Boot exposing deterministic backtesting (lump-sum and dollar-cost
+          averaging), risk-adjusted returns (CAGR, IRR, Sharpe ratio, drawdown), and profile metrics.</li>
+        <li>Infrastructure as code using Terraform with strict environment isolation, IAM least-privilege, and automated
+          deployment guardrails.</li>
+        <li>Clear architectural tradeoffs (e.g., prioritizing correctness and explainability over real-time streaming)
+          documented and embodied in code.</li>
+      </ul>
+      <p>
+        You can explore the live site at <a href="https://returnatlas.com" target="_blank"
+          rel="noopener noreferrer">returnatlas.com</a>. Feedback is welcome at <a href="mailto:hello@returnatlas.com">hello@returnatlas.com</a>.
       </p>
     </section>
 
